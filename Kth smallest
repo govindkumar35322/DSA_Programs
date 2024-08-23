@@ -1,0 +1,23 @@
+
+
+// User function Template for Java
+
+class Solution {
+    public static int kthSmallest(int[] arr, int k) {
+      PriorityQueue<Integer> pq=new  PriorityQueue <>();
+      for(int i:arr){
+          pq.add(i);
+      }
+          while(k-1>0){
+              pq.remove();
+              k--;
+          }
+      return pq.remove();
+    
+    
+    // second method
+    //     Arrays.sort(arr);
+    //   return arr[k-1];
+       
+    }
+}
