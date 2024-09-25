@@ -1,0 +1,17 @@
+ boolean isPalindrome(Node head) {
+        // Your code here
+        ArrayList<Integer> arr=new ArrayList<Integer>();
+         ArrayList<Integer> arr1=new ArrayList<Integer>();
+         Node temp=head;
+         while(temp!=null){
+             arr.add(temp.data);
+             arr1.add(temp.data);
+             temp=temp.next;
+         }
+         Collections.reverse(arr1);
+         if(arr.equals(arr1)){
+             return true;
+         }
+        
+        return false;
+    }
