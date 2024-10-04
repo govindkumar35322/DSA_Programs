@@ -1,0 +1,35 @@
+class Solution {
+    // Function to reverse a circular linked list
+    Node reverse(Node head) {
+     
+        Node prev = null;
+        Node curr = head;
+        Node temp = head.next;
+        while(temp != head){
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+            temp = temp.next;
+        }
+        curr.next = prev;
+        temp.next = curr;
+        return curr;
+    }
+    // Function to delete a node from the circular linked list
+    Node deleteNode(Node head, int key) {
+        // code here
+               Node temp = head;
+        if(head.data == key){
+            while(temp.next != head){
+                temp = temp.next;
+            }
+            temp.next = temp.next.next;
+            return head.next;
+        }
+        while(temp.next.data!=key && temp.next != head){
+            temp = temp.next;
+        }
+        if(temp.next.data == key) temp.next = temp.next.next;
+        return head;
+    }
+    }
