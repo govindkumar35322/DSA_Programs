@@ -1,0 +1,16 @@
+class Solution {
+    public static int getSize(Node node) {
+        
+        return find(node);
+    }
+    static int find(Node node){
+     //   int count=0;
+        if(node==null){
+            return 0;
+        }
+          //count=count+1;
+     return 1+ find(node.left)+find(node.right);
+        
+    }
+}
+        
