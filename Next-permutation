@@ -1,0 +1,23 @@
+class Solution {
+    // Function to find the smallest positive number missing from the array.
+    public int missingNumber(int[] arr) {
+      Arrays.sort(arr);
+      int small=1;
+      for(int n:arr){
+          if(n==small){
+              small++;
+          }
+          else if(n>small){
+              break;
+          }
+      }
+        
+        
+        
+        
+        return small;
+        
+        
+        
+    }
+}
