@@ -1,0 +1,28 @@
+
+
+
+class Solution {
+    static ArrayList<Integer> subarraySum(int[] arr, int target) {
+        // code here
+        ArrayList<Integer> ans=new    ArrayList<Integer>();
+        int n=arr.length;
+       int sum=0;
+       int l=0;
+       int r=0;
+       while(r<n){
+           sum+=arr[r];
+           while(l<n && sum>target){
+               sum-=arr[l];
+               l++;
+           }
+           if(sum==target){
+               ans.add(l+1);
+               ans.add(r+1);
+               break;
+           }
+           r++;
+       }
+       if(ans.isEmpty()) ans.add(-1);
+       return ans;
+    }
+}
