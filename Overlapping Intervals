@@ -1,0 +1,24 @@
+
+class Solution {
+    public List<int[]> mergeOverlap(int[][] arr) {
+      Arrays.sort(arr, (a, b) -> Integer.compare(a[0], b[0]));
+
+        // Step 2: Use a list to store the merged intervals
+        List<int[]> merged = new ArrayList<>();
+
+        for (int[] interval : arr) {
+            // If the list is empty or there is no overlap with the last interval
+            if (merged.isEmpty() || merged.get(merged.size() - 1)[1] < interval[0]) {
+                merged.add(interval);
+            } else {
+                // Overlap detected, merge the intervals
+                merged.get(merged.size() - 1)[1] = Math.max(merged.get(merged.size() - 1)[1], interval[1]);
+            }
+        }
+
+        // Return the merged list
+        return merged;
+    
+
+    }
+}
